@@ -1,5 +1,6 @@
 ---
 // Hero.astro - Sección Hero sincronizada con la maqueta Stitch (Obsidian Amber)
+import { assetUrl } from '../utils/paths';
 ---
 
 <section class="hero" id="hero">
@@ -118,7 +119,7 @@
           <!-- Image container -->
           <div class="hero__photo-card">
             <img
-              src={`${import.meta.env.BASE_URL}assets/profile.jpg`}
+              src={assetUrl('assets/profile.jpg')}
               alt="Francisco Gerardo Tillhet Avomo"
               class="hero__photo-img"
               width="420"

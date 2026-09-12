@@ -1,5 +1,6 @@
 ---
 import '../styles/main.scss';
+import { assetUrl } from '../utils/paths';
 
 interface Props {
   title?: string;
@@ -13,7 +14,8 @@ const {
   canonicalURL = 'https://elpronick.github.io/personal-website/'
 } = Astro.props;
 
-const faviconPath = `${import.meta.env.BASE_URL}favicon.svg`;
+const faviconPath = assetUrl('favicon.svg');
+const ogImagePath = `https://elpronick.github.io${assetUrl('assets/profile.jpg')}`;
 ---
 
 <!doctype html>
@@ -32,12 +34,14 @@ const faviconPath = `${import.meta.env.BASE_URL}favicon.svg`;
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImagePath} />
     <meta property="og:site_name" content="Francisco Tillhet Portfolio" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImagePath} />
 
     <!-- Optimización estricta de fuentes: preconnect y swap para Lighthouse 95+ -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

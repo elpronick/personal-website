@@ -10,8 +10,10 @@ interface Props {
 const {
   title = 'Francisco Tillhet | Fullstack Developer (PERN + Python)',
   description = 'Portfolio técnico de Francisco Tillhet. Ingeniero de software fullstack especializado en arquitecturas PERN (PostgreSQL, Express, React, Node.js) y Python. Rendimiento web, APIs concurrentes y sistemas escalables.',
-  canonicalURL = 'https://elpronick.github.io'
+  canonicalURL = 'https://elpronick.github.io/personal-website/'
 } = Astro.props;
+
+const faviconPath = `${import.meta.env.BASE_URL}favicon.svg`;
 ---
 
 <!doctype html>
@@ -23,7 +25,7 @@ const {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="theme-color" content="#0d0e12" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={faviconPath} />
 
     <!-- Open Graph / Redes Sociales -->
     <meta property="og:type" content="website" />

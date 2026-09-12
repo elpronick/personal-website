@@ -7,6 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
   site: 'https://elpronick.github.io',
+  base: '/personal-website',
   vite: {
     resolve: {
       alias: {

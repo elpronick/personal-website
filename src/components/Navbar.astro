@@ -1,0 +1,204 @@
+---
+// Navbar.astro - Barra flotante de navegación según maqueta Stitch (Obsidian Amber)
+---
+
+<header class="navbar" id="navbar">
+  <div class="navbar__container container">
+    <a href="#" class="navbar__brand" aria-label="Inicio Francisco Tillhet">
+      <span class="navbar__brand-text">
+        <strong class="navbar__brand-lead">FT</strong>
+        <span class="navbar__brand-slash">/</span>
+        <span class="navbar__brand-domain">elpronick.dev</span>
+      </span>
+      <span class="navbar__brand-pulse" aria-hidden="true"></span>
+    </a>
+
+    <nav class="navbar__nav" aria-label="Navegación principal">
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="#sobre-mi" class="navbar__link">Sobre mí</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#tech-stack" class="navbar__link">Tech Stack</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#proyectos" class="navbar__link">Proyectos</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#contacto" class="navbar__link">Contacto</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="navbar__actions">
+      <a
+        href="/docs/cv-francisco-gerardo.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        download="cv-francisco-gerardo.pdf"
+        class="navbar__btn-cv"
+      >
+        <span>Descargar CV</span>
+      </a>
+      <div class="navbar__avatar-wrapper">
+        <img
+          src="/assets/profile.jpg"
+          alt="Avatar Francisco Tillhet"
+          class="navbar__avatar"
+          width="32"
+          height="32"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+
+    &__container {
+      height: 64px;
+      @include glass-panel($color-glass-bg, 20px);
+      border-radius: $radius-xl;
+      border: 1px solid rgba(42, 50, 67, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      @include flex-between;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    &__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      transition: color $transition-fast;
+
+      &-text {
+        font-family: $font-mono;
+        font-size: 0.9375rem;
+        letter-spacing: 0.04em;
+        color: $color-text-primary;
+      }
+
+      &-lead {
+        font-weight: 700;
+      }
+
+      &-slash {
+        color: $color-text-muted;
+        font-weight: 400;
+        margin: 0 0.2rem;
+      }
+
+      &-domain {
+        color: $color-text-secondary;
+        font-weight: 500;
+      }
+
+      &-pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: $radius-full;
+        background-color: $color-primary;
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        animation: pulse-dot 2s infinite ease-in-out;
+      }
+
+      &:hover &-domain {
+        color: $color-primary;
+      }
+    }
+
+    &__nav {
+      @include respond-to(tablet) {
+        display: none;
+      }
+    }
+
+    &__menu {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    &__link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: $color-text-secondary;
+      border-radius: $radius-md;
+      transition: all $transition-fast;
+
+      &:hover {
+        color: $color-text-primary;
+        background: rgba(255, 255, 255, 0.05);
+      }
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    &__btn-cv {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.95rem;
+      font-family: $font-mono;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: $color-text-inverse;
+      background: $color-primary;
+      border-radius: $radius-md;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.25);
+      transition: all $transition-fast;
+
+      &:hover {
+        background: $color-primary-light;
+        transform: translateY(-1px);
+        box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+      }
+
+      @include respond-to(mobile) {
+        display: none;
+      }
+    }
+
+    &__avatar-wrapper {
+      width: 34px;
+      height: 34px;
+      border-radius: $radius-full;
+      overflow: hidden;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      flex-shrink: 0;
+    }
+
+    &__avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(0.85);
+    }
+  }
+</style>

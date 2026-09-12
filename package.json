@@ -1,0 +1,19 @@
+{
+  "name": "personal-website",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.2.4"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4",
+    "typescript": "^5.7.3"
+  }
+}

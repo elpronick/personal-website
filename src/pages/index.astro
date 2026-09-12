@@ -1,0 +1,26 @@
+---
+// index.astro - Página Principal del Portfolio (Stitch Obsidian Amber)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import TechStack from '../components/TechStack.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Portfolio Francisco G. Tillhet - Full Stack Developer (PERN + Python)"
+  description="Portfolio de Francisco Gerardo Tillhet Avomo (@elpronick). Programador Full Stack especializado en PERN Stack (PostgreSQL, Express, React, Node.js) y Python. Arquitectura limpia, APIs concurrentes y rendimiento web."
+>
+  <Navbar />
+  <main id="main-content">
+    <Hero />
+    <About />
+    <TechStack />
+    <Projects />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>

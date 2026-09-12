@@ -1,0 +1,531 @@
+---
+// Hero.astro - Sección Hero sincronizada con la maqueta Stitch (Obsidian Amber)
+---
+
+<section class="hero" id="hero">
+  <!-- Aura ambiental difuminada detrás del contenido -->
+  <div class="hero__ambient-glow hero__ambient-glow--top" aria-hidden="true"></div>
+  <div class="hero__ambient-glow hero__ambient-glow--bottom" aria-hidden="true"></div>
+
+  <div class="hero__container container">
+    <div class="hero__grid">
+      <!-- Columna 1: Textos, Identidad y CTAs (7 cols) -->
+      <div class="hero__content">
+        <!-- Live status pill -->
+        <div class="hero__status" role="status">
+          <span class="hero__status-indicator">
+            <span class="hero__status-ping"></span>
+            <span class="hero__status-core"></span>
+          </span>
+          <span class="hero__status-text">
+            Disponible para nuevos proyectos &amp; oportunidades
+          </span>
+        </div>
+
+        <!-- Headline & Roles -->
+        <div class="hero__titles">
+          <span class="hero__author text-mono">
+            Francisco Gerardo Tillhet Avomo · @elpronick
+          </span>
+          <h1 class="hero__headline">
+            Programador Full Stack &amp;
+            <span class="hero__headline-gradient">Arquitectura de Software</span>
+          </h1>
+        </div>
+
+        <!-- Technical Subtitle -->
+        <p class="hero__subtitle">
+          Especializado en el ecosistema <strong class="hero__strong">PERN Stack (PostgreSQL, Express, React, Node.js) y Python</strong>, construyendo aplicaciones web de alto rendimiento, arquitectura limpia y código altamente escalable.
+        </p>
+
+        <!-- CTA Action Hub -->
+        <div class="hero__actions">
+          <a href="#proyectos" class="hero__btn-primary">
+            <span>Explorar Proyectos</span>
+            <svg class="hero__btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+
+          <a href="#contacto" class="hero__btn-secondary">
+            <svg class="hero__btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Contactar / Email</span>
+          </a>
+
+          <div class="hero__social-pills">
+            <a
+              href="https://github.com/elpronick"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero__social-pill text-mono"
+              aria-label="Perfil GitHub"
+              title="GitHub: @elpronick"
+            >
+              GH
+            </a>
+            <a
+              href="https://linkedin.com/in/elpronick"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero__social-pill text-mono"
+              aria-label="Perfil LinkedIn"
+              title="LinkedIn: /in/elpronick"
+            >
+              IN
+            </a>
+          </div>
+        </div>
+
+        <!-- Minimal Metrics Card: Terminal style -->
+        <div class="hero__metrics">
+          <div class="hero__metric-item">
+            <span class="hero__metric-dot hero__metric-dot--amber"></span>
+            <span class="hero__metric-text text-mono">
+              <strong class="hero__metric-val">0 KB</strong> Zero JS Runtime Overhead
+            </span>
+          </div>
+
+          <div class="hero__metric-divider"></div>
+
+          <div class="hero__metric-item">
+            <span class="hero__metric-dot hero__metric-dot--green"></span>
+            <span class="hero__metric-text text-mono">
+              <strong class="hero__metric-val">99+</strong> Lighthouse Performance
+            </span>
+          </div>
+
+          <div class="hero__metric-divider"></div>
+
+          <div class="hero__metric-item">
+            <span class="hero__metric-dot hero__metric-dot--orange"></span>
+            <span class="hero__metric-text text-mono">
+              <strong class="hero__metric-val">100%</strong> TypeScript Estricto
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna 2: Visual Avatar Card (5 cols) -->
+      <div class="hero__visual">
+        <div class="hero__card-box">
+          <!-- Glow aura layer -->
+          <div class="hero__card-glow"></div>
+
+          <!-- Image container -->
+          <div class="hero__photo-card">
+            <img
+              src="/assets/profile.jpg"
+              alt="Francisco Gerardo Tillhet Avomo"
+              class="hero__photo-img"
+              width="420"
+              height="420"
+              loading="eager"
+            />
+
+            <!-- Floating role pill -->
+            <div class="hero__floating-pill">
+              <div class="hero__pill-left">
+                <span class="hero__pill-dot"></span>
+                <span class="hero__pill-title text-mono">Full-Stack PERN &amp; Python</span>
+              </div>
+              <span class="hero__pill-tag text-mono">v2.4.0</span>
+            </div>
+          </div>
+
+          <!-- Decorative monospaced stamp -->
+          <div class="hero__decorative-stamp text-mono">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hero__stamp-icon">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            <span>stack: [pg, ex, re, no, py]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .hero {
+    position: relative;
+    padding-top: 3.5rem;
+    padding-bottom: 5.5rem;
+    overflow: hidden;
+
+    @include respond-to(tablet) {
+      padding-top: 2rem;
+      padding-bottom: 3.5rem;
+    }
+
+    &__ambient-glow {
+      position: absolute;
+      border-radius: $radius-full;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+
+      &--top {
+        top: -40px;
+        right: 5%;
+        width: 380px;
+        height: 380px;
+        background: rgba(245, 158, 11, 0.12);
+      }
+
+      &--bottom {
+        bottom: 20px;
+        left: 5%;
+        width: 320px;
+        height: 320px;
+        background: rgba(236, 106, 6, 0.08);
+      }
+    }
+
+    &__grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: center;
+
+      @include respond-to(desktop) {
+        grid-template-columns: 1.25fr 0.95fr;
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    &__status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.35rem 0.9rem;
+      background: $color-surface-container-high;
+      border-radius: $radius-full;
+      box-shadow: $shadow-sm;
+
+      &-indicator {
+        position: relative;
+        display: flex;
+        width: 10px;
+        height: 10px;
+      }
+
+      &-ping {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: $radius-full;
+        background-color: $color-status-available;
+        opacity: 0.75;
+        animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+
+      &-core {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        border-radius: $radius-full;
+        background-color: $color-status-available;
+      }
+
+      &-text {
+        font-family: $font-mono;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: $color-status-available;
+      }
+    }
+
+    &__titles {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__author {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $color-primary;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    &__headline {
+      font-size: clamp(2.25rem, 4.5vw + 0.5rem, 3.75rem);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: $color-text-primary;
+
+      &-gradient {
+        background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: block;
+      }
+    }
+
+    &__subtitle {
+      font-size: clamp(1rem, 1.5vw + 0.4rem, 1.125rem);
+      line-height: 1.75;
+      color: $color-text-secondary;
+      max-width: 660px;
+    }
+
+    &__strong {
+      color: $color-text-primary;
+      font-weight: 600;
+    }
+
+    &__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    &__btn-primary {
+      @include button-primary;
+      padding: 0.85rem 1.6rem;
+      font-size: 0.9375rem;
+      border-radius: $radius-md;
+    }
+
+    &__btn-secondary {
+      @include button-secondary;
+      padding: 0.85rem 1.6rem;
+      font-size: 0.9375rem;
+      border-radius: $radius-md;
+    }
+
+    &__btn-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    &__social-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 0.25rem;
+    }
+
+    &__social-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-md;
+      background: $color-surface-container;
+      color: $color-text-secondary;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: $color-surface-hover;
+        color: $color-primary;
+        transform: translateY(-2px);
+      }
+    }
+
+    &__metrics {
+      width: 100%;
+      margin-top: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: $radius-lg;
+      background: $color-surface-elevated;
+      box-shadow: $shadow-md;
+      border: 1px solid $color-border-subtle;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    &__metric-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    &__metric-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: $radius-full;
+
+      &--amber {
+        background: $color-primary;
+      }
+      &--green {
+        background: $color-status-available;
+      }
+      &--orange {
+        background: $color-secondary;
+      }
+    }
+
+    &__metric-text {
+      font-size: 0.8125rem;
+      color: $color-text-secondary;
+    }
+
+    &__metric-val {
+      color: $color-text-primary;
+      font-weight: 600;
+    }
+
+    &__metric-divider {
+      height: 16px;
+      width: 1px;
+      background: $color-surface-container-highest;
+
+      @include respond-to(mobile) {
+        display: none;
+      }
+    }
+
+    // Columna Visual (Avatar)
+    &__visual {
+      display: flex;
+      justify-content: center;
+
+      @include respond-to(desktop) {
+        justify-content: flex-end;
+      }
+    }
+
+    &__card-box {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1;
+    }
+
+    &__card-glow {
+      position: absolute;
+      inset: -12px;
+      border-radius: $radius-2xl;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(236, 106, 6, 0.15) 50%, transparent 100%);
+      filter: blur(24px);
+      z-index: 0;
+    }
+
+    &__photo-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: $radius-xl;
+      background: $color-surface-card;
+      padding: 0.5rem;
+      border: 1px solid $color-border-subtle;
+      box-shadow: $shadow-card;
+      overflow: hidden;
+
+      &:hover .hero__photo-img {
+        transform: scale(1.04);
+      }
+    }
+
+    &__photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $radius-lg;
+      transition: transform 0.5s ease;
+    }
+
+    &__floating-pill {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: $radius-md;
+      @include glass-panel(rgba(21, 24, 33, 0.88), 16px);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: $shadow-md;
+    }
+
+    &__pill-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    &__pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: $radius-full;
+      background: $color-primary;
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+
+    &__pill-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: $color-text-primary;
+    }
+
+    &__pill-tag {
+      font-size: 0.75rem;
+      color: $color-primary-light;
+      font-weight: 600;
+    }
+
+    &__decorative-stamp {
+      position: absolute;
+      bottom: -1.25rem;
+      left: -1rem;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: $radius-md;
+      background: $color-surface-container-high;
+      border: 1px solid $color-border-subtle;
+      box-shadow: $shadow-md;
+      font-size: 0.75rem;
+      color: $color-text-muted;
+
+      @include respond-to(mobile) {
+        display: none;
+      }
+    }
+
+    &__stamp-icon {
+      width: 14px;
+      height: 14px;
+      color: $color-primary;
+    }
+  }
+
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+</style>

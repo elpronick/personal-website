@@ -1,0 +1,59 @@
+---
+import '../styles/main.scss';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = 'Francisco Tillhet | Fullstack Developer (PERN + Python)',
+  description = 'Portfolio técnico de Francisco Tillhet. Ingeniero de software fullstack especializado en arquitecturas PERN (PostgreSQL, Express, React, Node.js) y Python. Rendimiento web, APIs concurrentes y sistemas escalables.',
+  canonicalURL = 'https://elpronick.github.io'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="theme-color" content="#0d0e12" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Francisco Tillhet Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Optimización estricta de fuentes: preconnect y swap para Lighthouse 95+ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Fondo ambiental dinámico con sutil rejilla técnica -->
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <!-- Enlace accesible de salto al contenido -->
+    <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
+
+    <div class="content-wrapper">
+      <slot />
+    </div>
+  </body>
+</html>

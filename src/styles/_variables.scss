@@ -1,0 +1,74 @@
+// ==========================================
+// Variables de diseño - Obsidian Amber (Stitch Theme)
+// ==========================================
+
+// Colores de Fondo y Superficie
+$color-bg: #121317;
+$color-surface-lowest: #0d0e12;
+$color-surface: #121317;
+$color-surface-elevated: #151821;
+$color-surface-card: #1c212d;
+$color-surface-hover: #232938;
+$color-surface-container: #1f1f24;
+$color-surface-container-high: #292a2e;
+$color-surface-container-highest: #343439;
+$color-glass-bg: rgba(21, 24, 33, 0.85);
+
+// Bordes y Divisores
+$color-border-subtle: #2a3243;
+$color-border-active: #3e485e;
+$color-border-hover: #3b455b;
+$color-border-accent: rgba(245, 158, 11, 0.35);
+
+// Paleta de Acentos (Ámbar / Naranja / Oro)
+$color-primary: #f59e0b;          // Ámbar primario
+$color-primary-light: #ffc174;    // Ámbar luminoso
+$color-primary-container: #f59e0b;
+$color-secondary: #ec6a06;        // Naranja dinámico
+$color-secondary-light: #ffb690;
+$color-tertiary: #ffc32d;         // Oro cálido
+$color-accent-glow: rgba(245, 158, 11, 0.15);
+$color-accent-badge: rgba(245, 158, 11, 0.1);
+
+// Estado y Feedback
+$color-status-available: #10b981; // Verde LED disponibilidad
+$color-status-glow: rgba(16, 185, 129, 0.3);
+
+// Tipografía y Textos
+$color-text-primary: #f3f4f6;
+$color-text-secondary: #9ca3af;
+$color-text-muted: #6b7280;
+$color-text-inverse: #0d0e12;
+
+// Tipografías
+$font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+// Breakpoints
+$bp-mobile: 640px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;
+
+// Radios de Borde
+$radius-sm: 0.25rem;   // 4px
+$radius-md: 0.5rem;    // 8px
+$radius-lg: 0.75rem;   // 12px
+$radius-xl: 1rem;      // 16px
+$radius-2xl: 1.5rem;   // 24px
+$radius-full: 9999px;
+
+// Sombras
+$shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.2);
+$shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+$shadow-card: 0 10px 30px rgba(0, 0, 0, 0.45);
+$shadow-glow: 0 0 25px rgba(245, 158, 11, 0.2);
+$shadow-glow-pulse: 0 0 12px rgba(245, 158, 11, 0.6);
+
+// Transiciones
+$transition-fast: 0.18s ease;
+$transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Contenedor Máximo
+$container-max-width: 80rem; // 1280px como en Stitch

@@ -1,0 +1,77 @@
+// ==========================================
+// Main SCSS Entrypoint
+// (_variables y _mixins ya inyectados vía Vite)
+// ==========================================
+
+@use "reset";
+@use "typography";
+
+// Contenedor principal de la aplicación
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  @include respond-to(tablet) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+// Secciones espaciadas con anclas accesibles
+.section {
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+  position: relative;
+
+  @include respond-to(tablet) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+// Fondo con sutil cuadrícula técnica y luz radial de fondo
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(249, 115, 22, 0.04) 0%, transparent 45%),
+    linear-gradient(to bottom, #0d0e12, #0d0e12);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+}
+
+// Capa de contenido para estar sobre el ambient-bg
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+// Utilidad para ocultar visualmente pero mantener en lectores de pantalla (a11y)
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

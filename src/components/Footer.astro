@@ -1,0 +1,127 @@
+---
+// Footer.astro - Pie de página según maqueta Stitch (Obsidian Amber)
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__container container">
+    <div class="footer__status-group">
+      <div class="footer__status-pill">
+        <span class="footer__status-dot"></span>
+        <span class="footer__status-text text-mono">
+          All systems normal (Arquitectura Estática con Astro - Zero JS Runtime Overhead)
+        </span>
+      </div>
+      <span class="footer__copyright text-mono">
+        &copy; {currentYear} Francisco Gerardo Tillhet Avomo
+      </span>
+    </div>
+
+    <div class="footer__links">
+      <a
+        href="https://github.com/elpronick"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer__link text-mono"
+      >
+        GitHub
+      </a>
+      <a
+        href="https://linkedin.com/in/elpronick"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer__link text-mono"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="mailto:elpronick.dev@gmail.com"
+        class="footer__link text-mono"
+      >
+        elpronick.dev@gmail.com
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  .footer {
+    width: 100%;
+    background: $color-surface-lowest;
+    border-top: 1px solid $color-border-subtle;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    margin-top: 3rem;
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+
+      @include respond-to(tablet) {
+        flex-direction: row;
+      }
+    }
+
+    &__status-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+
+      @include respond-to(tablet) {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.25rem;
+      }
+    }
+
+    &__status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: $radius-full;
+      background: $color-surface-container-high;
+      border: 1px solid rgba(42, 50, 67, 0.5);
+    }
+
+    &__status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: $radius-full;
+      background-color: $color-status-available;
+      box-shadow: 0 0 8px $color-status-available;
+    }
+
+    &__status-text {
+      font-size: 0.75rem;
+      color: $color-text-muted;
+    }
+
+    &__copyright {
+      font-size: 0.75rem;
+      color: $color-text-muted;
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__link {
+      font-size: 0.8125rem;
+      color: $color-text-secondary;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+</style>

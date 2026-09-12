@@ -1,0 +1,315 @@
+---
+// Projects.astro - Portafolio Seleccionado según maqueta Stitch (2 Columnas Simétricas)
+import { projectsData } from '../data/projects';
+---
+
+<section class="projects section" id="proyectos">
+  <div class="projects__container container">
+    <!-- Header de Sección -->
+    <div class="projects__header">
+      <div class="projects__label-group">
+        <span class="projects__label text-mono">03 / Portafolio Seleccionado</span>
+        <div class="projects__label-line"></div>
+      </div>
+      <h2 class="projects__title">Proyectos &amp; Arquitecturas Implementadas</h2>
+      <p class="projects__subtitle">
+        Aplicaciones de producción con énfasis en flujo de datos en tiempo real, consistencia transaccional y experiencia de usuario fluida.
+      </p>
+    </div>
+
+    <!-- Cuadrícula simétrica de 2 proyectos insignia -->
+    <div class="projects__grid">
+      {projectsData.map((project) => (
+        <article class="project-card" id={project.id}>
+          <div class="project-card__content">
+            <!-- Header bar de la tarjeta -->
+            <div class="project-card__header">
+              <div class="project-card__badge-wrapper">
+                <span class="project-card__dot" class:list={{ 'project-card__dot--secondary': project.id === 'guineval-logistics' }}></span>
+                <span class="project-card__badge text-mono" class:list={{ 'project-card__badge--secondary': project.id === 'guineval-logistics' }}>
+                  {project.badge}
+                </span>
+              </div>
+              <span class="project-card__category text-mono">{project.categoryNumber}</span>
+            </div>
+
+            <!-- Título y descripción -->
+            <div class="project-card__info">
+              <h3 class="project-card__title" class:list={{ 'project-card__title--secondary': project.id === 'guineval-logistics' }}>
+                {project.title}
+              </h3>
+              <p class="project-card__desc">{project.summary}</p>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="project-card__tags">
+              {project.tags.map((tag) => (
+                <span class="project-card__tag text-mono">{tag}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Project Actions Footer -->
+          <div class="project-card__actions">
+            {project.links.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-card__btn"
+                class:list={{
+                  'project-card__btn--highlight': link.type === 'demo',
+                  'project-card__btn--highlight-secondary': link.type === 'demo' && project.id === 'guineval-logistics'
+                }}
+              >
+                {link.type === 'github' ? (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="project-card__btn-icon">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="project-card__btn-icon">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                )}
+                <span>{link.label}</span>
+              </a>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .projects {
+    &__header {
+      margin-bottom: 2.5rem;
+    }
+
+    &__label-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: $color-primary;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    &__label-line {
+      height: 1px;
+      width: 4rem;
+      background: $color-surface-container-highest;
+    }
+
+    &__title {
+      font-size: clamp(1.85rem, 3.2vw + 0.5rem, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: $color-text-primary;
+      margin-bottom: 0.75rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: $color-text-secondary;
+      max-width: 600px;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+
+      @include respond-to(desktop) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  .project-card {
+    @include card-surface;
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.75rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    @include respond-to(tablet) {
+      padding: 1.5rem;
+    }
+
+    &:hover {
+      background: $color-surface-hover;
+      transform: translateY(-4px);
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__badge-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    &__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: $radius-full;
+      background-color: $color-status-available;
+      animation: pulse-dot 2s infinite ease-in-out;
+
+      &--secondary {
+        background-color: $color-secondary;
+        animation: none;
+      }
+    }
+
+    &__badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $color-status-available;
+
+      &--secondary {
+        color: $color-secondary;
+      }
+    }
+
+    &__category {
+      font-size: 0.75rem;
+      color: $color-text-muted;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $color-text-primary;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &--secondary:hover {
+        color: $color-secondary;
+      }
+    }
+
+    &__desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: $color-text-secondary;
+    }
+
+    &__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      padding-top: 0.25rem;
+    }
+
+    &__tag {
+      padding: 0.25rem 0.65rem;
+      border-radius: $radius-full;
+      background: $color-surface-elevated;
+      font-size: 0.75rem;
+      color: $color-text-secondary;
+      border: 1px solid rgba(42, 50, 67, 0.5);
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(42, 50, 67, 0.4);
+    }
+
+    &__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: $radius-md;
+      background: $color-surface-elevated;
+      color: $color-text-primary;
+      font-family: $font-mono;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      border: 1px solid $color-border-subtle;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: $color-surface-container-high;
+        border-color: $color-border-active;
+      }
+
+      &--highlight {
+        background: rgba(245, 158, 11, 0.1);
+        color: $color-primary;
+        border-color: rgba(245, 158, 11, 0.3);
+
+        &:hover {
+          background: $color-primary;
+          color: $color-text-inverse;
+        }
+      }
+
+      &--highlight-secondary {
+        background: rgba(236, 106, 6, 0.1);
+        color: $color-secondary;
+        border-color: rgba(236, 106, 6, 0.3);
+
+        &:hover {
+          background: $color-secondary;
+          color: $color-text-inverse;
+        }
+      }
+
+      &-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(0.85);
+    }
+  }
+</style>

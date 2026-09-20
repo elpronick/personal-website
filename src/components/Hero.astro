@@ -67,7 +67,7 @@ import { assetUrl } from '../utils/paths';
               title="GitHub: @elpronick"
             >
               <img
-                src={assetUrl('assets/github.png')}
+                src={assetUrl('assets/github-icon.svg')}
                 alt="GitHub"
                 class="hero__social-icon"
                 width="20"
@@ -84,7 +84,7 @@ import { assetUrl } from '../utils/paths';
               title="LinkedIn: /in/elpronick"
             >
               <img
-                src={assetUrl('assets/linkedin.png')}
+                src={assetUrl('assets/linkedin-icon.svg')}
                 alt="LinkedIn"
                 class="hero__social-icon"
                 width="20"
@@ -153,11 +153,59 @@ import { assetUrl } from '../utils/paths';
 
           <!-- Decorative monospaced stamp -->
           <div class="hero__decorative-stamp text-mono">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hero__stamp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hero__stamp-icon" aria-hidden="true">
               <polyline points="4 17 10 11 4 5"></polyline>
               <line x1="12" y1="19" x2="20" y2="19"></line>
             </svg>
-            <span>stack: [pg, ex, re, no, py]</span>
+            <span class="hero__stamp-label">stack: [</span>
+            <div class="hero__stamp-icons">
+              <img
+                src={assetUrl('assets/postgresql-icon.svg')}
+                alt="PostgreSQL"
+                class="hero__stamp-tech-icon"
+                title="PostgreSQL"
+                width="16"
+                height="16"
+                loading="eager"
+              />
+              <img
+                src={assetUrl('assets/express-js-icon.svg')}
+                alt="Express"
+                class="hero__stamp-tech-icon hero__stamp-tech-icon--express"
+                title="Express"
+                width="16"
+                height="16"
+                loading="eager"
+              />
+              <img
+                src={assetUrl('assets/react-js-icon.svg')}
+                alt="React"
+                class="hero__stamp-tech-icon"
+                title="React"
+                width="16"
+                height="16"
+                loading="eager"
+              />
+              <img
+                src={assetUrl('assets/node-js-icon.svg')}
+                alt="Node.js"
+                class="hero__stamp-tech-icon"
+                title="Node.js"
+                width="16"
+                height="16"
+                loading="eager"
+              />
+              <img
+                src={assetUrl('assets/python-icon.svg')}
+                alt="Python"
+                class="hero__stamp-tech-icon"
+                title="Python"
+                width="16"
+                height="16"
+                loading="eager"
+              />
+            </div>
+            <span class="hero__stamp-label">]</span>
           </div>
         </div>
       </div>
@@ -533,6 +581,7 @@ import { assetUrl } from '../utils/paths';
       box-shadow: $shadow-md;
       font-size: 0.75rem;
       color: $color-text-muted;
+      white-space: nowrap;
 
       @include respond-to(mobile) {
         display: none;
@@ -543,6 +592,40 @@ import { assetUrl } from '../utils/paths';
       width: 14px;
       height: 14px;
       color: $color-primary;
+      flex-shrink: 0;
+    }
+
+    &__stamp-label {
+      color: $color-text-muted;
+      line-height: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    &__stamp-icons {
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    &__stamp-tech-icon {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+      transition: transform $transition-fast;
+
+      &:hover {
+        transform: scale(1.25);
+      }
+
+      &--express {
+        filter: brightness(0) invert(1);
+      }
     }
   }
 

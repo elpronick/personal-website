@@ -29,7 +29,7 @@ import { assetUrl } from '../utils/paths';
             Francisco Gerardo Tillhet Avomo · @elpronick
           </span>
           <h1 class="hero__headline">
-            Programador Full Stack &amp;
+            Programador Web FullStack &amp;
             <span class="hero__headline-gradient">Arquitectura de Software</span>
           </h1>
         </div>
@@ -62,21 +62,35 @@ import { assetUrl } from '../utils/paths';
               href="https://github.com/elpronick"
               target="_blank"
               rel="noopener noreferrer"
-              class="hero__social-pill text-mono"
+              class="hero__social-pill"
               aria-label="Perfil GitHub"
               title="GitHub: @elpronick"
             >
-              GH
+              <img
+                src={assetUrl('assets/github.png')}
+                alt="GitHub"
+                class="hero__social-icon"
+                width="20"
+                height="20"
+                loading="eager"
+              />
             </a>
             <a
               href="https://linkedin.com/in/elpronick"
               target="_blank"
               rel="noopener noreferrer"
-              class="hero__social-pill text-mono"
+              class="hero__social-pill"
               aria-label="Perfil LinkedIn"
               title="LinkedIn: /in/elpronick"
             >
-              IN
+              <img
+                src={assetUrl('assets/linkedin.png')}
+                alt="LinkedIn"
+                class="hero__social-icon"
+                width="20"
+                height="20"
+                loading="eager"
+              />
             </a>
           </div>
         </div>
@@ -335,15 +349,24 @@ import { assetUrl } from '../utils/paths';
       border-radius: $radius-md;
       background: $color-surface-container;
       color: $color-text-secondary;
-      font-size: 0.8125rem;
-      font-weight: 600;
       transition: all $transition-fast;
 
       &:hover {
         background: $color-surface-hover;
-        color: $color-primary;
         transform: translateY(-2px);
       }
+    }
+
+    &__social-icon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      display: block;
+      transition: transform $transition-fast;
+    }
+
+    &__social-pill:hover &__social-icon {
+      transform: scale(1.08);
     }
 
     &__metrics {

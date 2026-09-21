@@ -77,6 +77,9 @@ const currentYear = new Date().getFullYear();
       border-radius: $radius-full;
       background: $color-surface-container-high;
       border: 1px solid rgba(42, 50, 67, 0.5);
+      @include respond-to(mobile) {
+        width: 85%;
+      }
     }
 
     &__status-dot {

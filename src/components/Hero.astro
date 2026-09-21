@@ -309,6 +309,9 @@ import { assetUrl } from '../utils/paths';
         font-weight: 600;
         letter-spacing: 0.04em;
         color: $color-status-available;
+        @include respond-to(mobile) {
+          font-size: 0.6rem;
+        }
       }
     }
 
@@ -319,7 +322,7 @@ import { assetUrl } from '../utils/paths';
     }
 
     &__author {
-      font-size: 0.875rem;
+      font-size: 0.5rem;
       font-weight: 600;
       color: $color-primary;
       text-transform: uppercase;

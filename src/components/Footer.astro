@@ -9,7 +9,8 @@ const currentYear = new Date().getFullYear();
       <div class="footer__status-pill">
         <span class="footer__status-dot"></span>
         <span class="footer__status-text text-mono">
-          All systems normal (Arquitectura Estática con Astro - Zero JS Runtime Overhead)
+          All systems normal.
+          <span class="footer__status-tech-text">Arquitectura Estática con Astro - Zero JS Runtime Overhead</span>
         </span>
       </div>
       <span class="footer__copyright text-mono">
@@ -59,10 +60,6 @@ const currentYear = new Date().getFullYear();
       gap: 1.5rem;
       align-items: center;
       justify-content: space-between;
-
-      @include respond-to(tablet) {
-        flex-direction: row;
-      }
     }
 
     &__status-group {
@@ -70,12 +67,6 @@ const currentYear = new Date().getFullYear();
       flex-direction: column;
       gap: 0.75rem;
       align-items: center;
-
-      @include respond-to(tablet) {
-        flex-direction: row;
-        align-items: center;
-        gap: 1.25rem;
-      }
     }
 
     &__status-pill {
@@ -99,6 +90,10 @@ const currentYear = new Date().getFullYear();
     &__status-text {
       font-size: 0.75rem;
       color: $color-text-muted;
+    }
+
+    &__status-tech-text {
+      color: $color-text-secondary;
     }
 
     &__copyright {
